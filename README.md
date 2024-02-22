@@ -77,6 +77,17 @@ ner_pipe = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strateg
 ner_diagnostic_result = ner_pipe("A male patient with a history of diabetes, hypertension, and hyperlipidemia presents with chest pain")
 print(ner_diagnostic_result)
 ```
+- fill-mask
+``` python
+from transformers import pipeline
+
+unmasker = pipeline("fill-mask")
+mask_filled_list = unmasker("Sydney is an <mask> city.")
+mask_filled_list.sort(key=lambda x: x['score'], reverse=True)
+for item in mask_filled_list:
+    print(item['sequence'], item['score'])
+```
+
 </details>
 
 <details>
