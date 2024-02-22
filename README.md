@@ -63,11 +63,11 @@ Pipelines are the most basic object in the 🤗 library is the `pipeline()` func
 Some of the available pipelines are:
 - sentiment-analysis
 
-```
+```python
 classifier = pipeline(task="sentiment-analysis")
 ```
 - Named Entity Recognition "ner"
-```
+```python
 from transformers import pipeline
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 
