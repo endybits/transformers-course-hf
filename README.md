@@ -60,8 +60,22 @@ Organizations line Facebook, Google, Microsoft, etc. use and contribute 🤗 Tra
 
 * Working with pipelines
 Pipelines are the most basic object in the 🤗 library is the `pipeline()` function. It connects a model with its pre-processing and post-processing steps, allowing us to directly input any text and get an intelligible answer.
+Some of the available pipelines are:
+- sentiment-analysis
 
+```
+classifier = pipeline(task="sentiment-analysis")
+```
+- Named Entity Recognition "ner"
+```
+from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForTokenClassification
 
+tokenizer = AutoTokenizer.from_pretrained("d4data/biomedical-ner-all")
+model = AutoModelForTokenClassification.from_pretrained("d4data/biomedical-ner-all")
+ner_pipe = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
+ner_diagn_result = ner_pipe("A male patient with a history of diabetes, hypertension, and hyperlipidemia presents with chest pain")
+```
 </details>
 
 <details>
