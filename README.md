@@ -74,7 +74,8 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification
 tokenizer = AutoTokenizer.from_pretrained("d4data/biomedical-ner-all")
 model = AutoModelForTokenClassification.from_pretrained("d4data/biomedical-ner-all")
 ner_pipe = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
-ner_diagn_result = ner_pipe("A male patient with a history of diabetes, hypertension, and hyperlipidemia presents with chest pain")
+ner_diagnostic_result = ner_pipe("A male patient with a history of diabetes, hypertension, and hyperlipidemia presents with chest pain")
+print(ner_diagnostic_result)
 ```
 </details>
 
